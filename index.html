@@ -70,7 +70,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZXQ5NR9GH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-5ZXQ5NR9GH');
   </script>
@@ -225,6 +225,40 @@
           class="text-xs font-semibold text-slate-600 bg-white border border-slate-200/90 px-3.5 py-1.5 rounded-xl shadow-2xs shrink-0">Today</span>
       </div>
 
+      <!-- Phase 8: Quick Brain Dump Inbox at Top of Overview -->
+      <div id="dash-quick-capture-card" class="card-surface p-4 sm:p-5 focus-collapsible">
+        <div class="flex items-center justify-between mb-2.5">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Quick capture</span>
+          <span class="text-[11px] text-slate-500">Instant brain dump to inbox</span>
+        </div>
+        <div class="relative flex items-center">
+          <label for="dash-quick-capture-input" class="sr-only">Quick Brain Dump Inbox</label>
+          <svg class="w-4 h-4 text-slate-400 absolute left-4 pointer-events-none" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          <input id="dash-quick-capture-input" type="text" maxlength="240" placeholder="Quick Brain Dump..."
+            class="bento-capture-input w-full h-12 pl-10 pr-24 text-xs sm:text-sm text-slate-900 focus:outline-none" />
+          <button id="btn-dash-quick-capture" type="button"
+            class="tap-target quick-capture-submit-btn absolute right-2 h-8 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1 transition-colors"
+            aria-label="Capture thought to inbox" title="Capture to inbox">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            <span>Add</span>
+          </button>
+        </div>
+        <div id="dash-inbox-container" class="hidden mt-4 pt-3.5 border-t border-slate-100">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Captured thoughts</span>
+            <span id="dash-inbox-count"
+              class="text-[10px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">0</span>
+          </div>
+          <div id="dash-inbox-list" class="divide-y divide-slate-100"></div>
+        </div>
+      </div>
+
       <!-- Strict 12-Column Bento-Box Grid Architecture (8-Col Main Stage + 4-Col Sidebar on lg+) -->
       <div class="bento-grid-12">
         <!-- Left Column (Main Stage - 8 Columns): Briefing, Close-out, Quick Capture, Focus Session, Up Next Tasks -->
@@ -292,40 +326,6 @@
             </div>
 
             <div id="evening-closeout-list" class="divide-y divide-slate-100 mt-2"></div>
-          </div>
-
-          <!-- Phase 8: Minimalist Quick Capture Inbox -->
-          <div id="dash-quick-capture-card" class="card-surface bento-stage-card p-5 sm:p-6 lg:p-7 focus-collapsible">
-            <div class="flex items-center justify-between mb-2.5">
-              <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Quick capture</span>
-              <span class="text-[11px] text-slate-500">Instant brain dump to inbox</span>
-            </div>
-            <div class="relative flex items-center">
-              <label for="dash-quick-capture-input" class="sr-only">Quick brain dump inbox</label>
-              <svg class="w-4 h-4 text-slate-400 absolute left-4 pointer-events-none" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M12 5v14M5 12h14" />
-              </svg>
-              <input id="dash-quick-capture-input" type="text" maxlength="240" placeholder="Quick Brain dump..."
-                class="bento-capture-input w-full h-12 pl-10 pr-24 text-xs sm:text-sm text-slate-900 focus:outline-none" />
-              <button id="btn-dash-quick-capture" type="button"
-                class="tap-target quick-capture-submit-btn absolute right-2 h-8 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1 transition-colors"
-                aria-label="Capture thought to inbox" title="Capture to inbox">
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                </svg>
-                <span>Add</span>
-              </button>
-            </div>
-            <div id="dash-inbox-container" class="hidden mt-4 pt-3.5 border-t border-slate-100">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Captured thoughts</span>
-                <span id="dash-inbox-count"
-                  class="text-[10px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">0</span>
-              </div>
-              <div id="dash-inbox-list" class="divide-y divide-slate-100"></div>
-            </div>
           </div>
 
           <!-- Up Next: Priority Tasks Card (Main Stage) -->
@@ -585,36 +585,6 @@
           </svg>
           <span>Add task</span>
         </button>
-      </div>
-
-      <!-- Phase 8: Quick Capture Inbox at Top of Tasks View -->
-      <div id="tasks-quick-capture-card" class="card-surface p-3.5 sm:p-4">
-        <div class="relative flex items-center">
-          <label for="quick-capture-input" class="sr-only">Quick brain dump inbox</label>
-          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
-            <path d="M12 5v14M5 12h14" />
-          </svg>
-          <input id="quick-capture-input" type="text" maxlength="240" placeholder="Quick Brain dump..."
-            class="bento-capture-input w-full h-12 pl-10 pr-24 text-xs sm:text-sm text-slate-900 focus:outline-none" />
-          <button id="btn-tasks-quick-capture" type="button"
-            class="tap-target quick-capture-submit-btn absolute right-2 h-8 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1 transition-colors"
-            aria-label="Capture thought to inbox" title="Capture to inbox">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="12" y1="5" x2="12" y2="19" />
-              <line x1="5" y1="12" x2="19" y2="12" />
-            </svg>
-            <span>Add</span>
-          </button>
-        </div>
-        <div id="tasks-inbox-container" class="hidden mt-3 pt-2.5 border-t border-slate-100">
-          <div class="flex items-center justify-between mb-1.5">
-            <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Quick capture inbox</span>
-            <span id="tasks-inbox-count"
-              class="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">0</span>
-          </div>
-          <div id="tasks-inbox-list" class="divide-y divide-slate-100"></div>
-        </div>
       </div>
 
       <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full">
