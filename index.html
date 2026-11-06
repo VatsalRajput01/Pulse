@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -11,26 +12,30 @@
 
   <!-- Primary Meta Tags -->
   <meta name="title" content="Pulse | Minimalist Daily Workspace & Focus Timer">
-  <meta name="description" content="Minimalist personal operating system for habits, tasks, deliberate skill practice, notes, and timed focus sessions. 100% offline-ready and local-first.">
-  <meta name="keywords" content="productivity, habit tracker, task manager, focus timer, pomodoro, local-first, offline pwa, minimalist workspace">
+  <meta name="description"
+    content="Minimalist personal operating system for habits, tasks, deliberate skill practice, notes, and timed focus sessions. 100% offline-ready and local-first.">
+  <meta name="keywords"
+    content="productivity, habit tracker, task manager, focus timer, pomodoro, local-first, offline pwa, minimalist workspace">
   <meta name="author" content="Vatsal Rajput">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://your-deployment-url.com/">
+  <link rel="canonical" href="https://mypulse.pages.dev/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://your-deployment-url.com/">
+  <meta property="og:url" content="https://mypulse.pages.dev/">
   <meta property="og:site_name" content="Pulse">
   <meta property="og:title" content="Pulse | Minimalist Daily Workspace & Focus Timer">
-  <meta property="og:description" content="Minimalist personal operating system for habits, tasks, deliberate skill practice, notes, and timed focus sessions. 100% offline-ready and local-first.">
-  <meta property="og:image" content="https://your-deployment-url.com/icons/icon-512.png">
+  <meta property="og:description"
+    content="Minimalist personal operating system for habits, tasks, deliberate skill practice, notes, and timed focus sessions. 100% offline-ready and local-first.">
+  <meta property="og:image" content="https://mypulse.pages.dev/icons/icon-512.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://your-deployment-url.com/">
+  <meta name="twitter:url" content="https://mypulse.pages.dev/">
   <meta name="twitter:title" content="Pulse | Minimalist Daily Workspace & Focus Timer">
-  <meta name="twitter:description" content="Minimalist personal operating system for habits, tasks, deliberate skill practice, notes, and timed focus sessions. 100% offline-ready and local-first.">
-  <meta name="twitter:image" content="https://your-deployment-url.com/icons/icon-512.png">
+  <meta name="twitter:description"
+    content="Minimalist personal operating system for habits, tasks, deliberate skill practice, notes, and timed focus sessions. 100% offline-ready and local-first.">
+  <meta name="twitter:image" content="https://mypulse.pages.dev/icons/icon-512.png">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -38,7 +43,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Pulse",
-    "url": "https://your-deployment-url.com/",
+    "url": "https://mypulse.pages.dev/",
     "description": "Minimalist personal operating system for habits, tasks, deliberate skill practice, notes, and timed focus sessions.",
     "applicationCategory": "ProductivityApplication",
     "operatingSystem": "All",
@@ -60,16 +65,31 @@
   <link id="apple-touch-link" rel="apple-touch-icon" sizes="192x192" href="./icons/icon-192.png">
   <link id="pwa-manifest-link" rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./styles.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZXQ5NR9GH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5ZXQ5NR9GH');
+  </script>
 </head>
+
 <body class="min-h-screen flex flex-col antialiased pb-24 md:pb-10">
 
   <!-- Smart Top-Center X-Style Notification Pill -->
-  <div id="toast" role="status" aria-live="polite" aria-atomic="true" class="x-toast-pill bg-slate-900/95 backdrop-blur-md text-white text-xs px-4 py-2.5 rounded-full flex items-center justify-between gap-3 border border-slate-800">
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"
+    class="x-toast-pill bg-slate-900/95 backdrop-blur-md text-white text-xs px-4 py-2.5 rounded-full flex items-center justify-between gap-3 border border-slate-800">
     <div class="flex items-center space-x-2 min-w-0">
-      <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2.5">
+        <polyline points="20 6 9 17 4 12" />
+      </svg>
       <span id="toast-text" class="font-medium truncate">Updated</span>
     </div>
-    <button id="toast-undo-btn" type="button" class="hidden tap-target text-xs font-semibold text-indigo-300 hover:text-white bg-white/10 px-2.5 py-0.5 rounded-full shrink-0">
+    <button id="toast-undo-btn" type="button"
+      class="hidden tap-target text-xs font-semibold text-indigo-300 hover:text-white bg-white/10 px-2.5 py-0.5 rounded-full shrink-0">
       Undo
     </button>
   </div>
@@ -79,8 +99,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
       <div class="flex items-center space-x-3">
         <div class="w-9 h-9 rounded-xl bg-slate-900 flex items-center justify-center shadow-xs shrink-0">
-          <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
           </svg>
         </div>
         <div>
@@ -91,23 +112,30 @@
 
       <div class="flex items-center space-x-2">
         <!-- Quick Focus Timer Pill -->
-        <button id="btn-header-timer" type="button" class="tap-target h-10 px-3 rounded-xl border border-slate-200 hover:bg-slate-50 active:bg-slate-100 text-slate-700 flex items-center space-x-1.5 text-xs font-medium">
-          <svg class="w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        <button id="btn-header-timer" type="button"
+          class="tap-target h-10 px-3 rounded-xl border border-slate-200 hover:bg-slate-50 active:bg-slate-100 text-slate-700 flex items-center space-x-1.5 text-xs font-medium">
+          <svg class="w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
           </svg>
           <span id="header-timer-display" class="font-mono text-xs font-semibold">25:00</span>
         </button>
 
         <!-- Sound Toggle -->
-        <button id="btn-quick-sound" type="button" class="tap-target w-10 h-10 rounded-xl border border-slate-200 hover:bg-slate-50 active:bg-slate-100 text-slate-600 flex items-center justify-center" title="Toggle audio feedback" aria-label="Toggle audio feedback">
-          <svg id="icon-sound-on" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        <button id="btn-quick-sound" type="button"
+          class="tap-target w-10 h-10 rounded-xl border border-slate-200 hover:bg-slate-50 active:bg-slate-100 text-slate-600 flex items-center justify-center"
+          title="Toggle audio feedback" aria-label="Toggle audio feedback">
+          <svg id="icon-sound-on" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
           </svg>
-          <svg id="icon-sound-off" class="w-4 h-4 hidden text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-            <line x1="23" y1="9" x2="17" y2="15"/>
-            <line x1="17" y1="9" x2="23" y2="15"/>
+          <svg id="icon-sound-off" class="w-4 h-4 hidden text-slate-400" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+            <line x1="23" y1="9" x2="17" y2="15" />
+            <line x1="17" y1="9" x2="23" y2="15" />
           </svg>
         </button>
 
@@ -116,33 +144,67 @@
     </div>
 
     <!-- Desktop Navigation -->
-    <div class="hidden md:flex max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-x-7 text-xs font-medium border-t border-slate-100">
-      <button id="desk-tab-dashboard" type="button" class="tap-target py-3 border-b-2 border-slate-900 text-slate-900 font-semibold flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+    <div
+      class="hidden md:flex max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-x-7 text-xs font-medium border-t border-slate-100">
+      <button id="desk-tab-dashboard" type="button"
+        class="tap-target py-3 border-b-2 border-slate-900 text-slate-900 font-semibold flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7" rx="1" />
+          <rect x="14" y="3" width="7" height="7" rx="1" />
+          <rect x="14" y="14" width="7" height="7" rx="1" />
+          <rect x="3" y="14" width="7" height="7" rx="1" />
+        </svg>
         <span>Overview</span>
       </button>
-      <button id="desk-tab-focus" type="button" class="tap-target py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <button id="desk-tab-focus" type="button"
+        class="tap-target py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
         <span>Focus</span>
       </button>
-      <button id="desk-tab-habits" type="button" class="tap-target py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+      <button id="desk-tab-habits" type="button"
+        class="tap-target py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20v-6M6 20V10M18 20V4" />
+        </svg>
         <span>Habits</span>
       </button>
-      <button id="desk-tab-tasks" type="button" class="tap-target py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <button id="desk-tab-tasks" type="button"
+        class="tap-target py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4" />
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+        </svg>
         <span>Tasks</span>
       </button>
-      <button id="desk-tab-skills" type="button" class="tap-target py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      <button id="desk-tab-skills" type="button"
+        class="tap-target py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="12" r="6" />
+          <circle cx="12" cy="12" r="2" />
+        </svg>
         <span>Skills</span>
       </button>
-      <button id="desk-tab-notes" type="button" class="tap-target py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      <button id="desk-tab-notes" type="button"
+        class="tap-target py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+        </svg>
         <span>Notes</span>
       </button>
-      <button id="desk-tab-settings" type="button" class="tap-target py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <button id="desk-tab-settings" type="button"
+        class="tap-target py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3" />
+          <path
+            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        </svg>
         <span>Settings</span>
       </button>
     </div>
@@ -155,10 +217,12 @@
     <section id="view-dashboard" class="view-animate space-y-6 lg:space-y-8">
       <div class="flex items-center justify-between border-b border-slate-200/80 pb-4">
         <div>
-          <h2 id="greeting-title" class="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 tracking-tight">Overview</h2>
+          <h2 id="greeting-title" class="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 tracking-tight">
+            Overview</h2>
           <p class="text-xs sm:text-sm text-slate-500 mt-1">Your daily summary and focus workspace.</p>
         </div>
-        <span id="dashboard-date-badge" class="text-xs font-semibold text-slate-600 bg-white border border-slate-200/90 px-3.5 py-1.5 rounded-xl shadow-2xs shrink-0">Today</span>
+        <span id="dashboard-date-badge"
+          class="text-xs font-semibold text-slate-600 bg-white border border-slate-200/90 px-3.5 py-1.5 rounded-xl shadow-2xs shrink-0">Today</span>
       </div>
 
       <!-- Strict 12-Column Bento-Box Grid Architecture (8-Col Main Stage + 4-Col Sidebar on lg+) -->
@@ -166,18 +230,34 @@
         <!-- Left Column (Main Stage - 8 Columns): Briefing, Close-out, Quick Capture, Focus Session, Up Next Tasks -->
         <div class="bento-main-col space-y-6 lg:space-y-7">
           <!-- Phase 5: The Daily Briefing Launchpad (Morning Ritual) -->
-          <div id="daily-briefing-card" class="card-surface bento-stage-card p-5 sm:p-6 lg:p-8 briefing-card-wrap hidden" role="region" aria-labelledby="briefing-heading">
+          <div id="daily-briefing-card"
+            class="card-surface bento-stage-card p-5 sm:p-6 lg:p-8 briefing-card-wrap hidden" role="region"
+            aria-labelledby="briefing-heading">
             <div class="flex items-center justify-between gap-4 pb-4 border-b border-slate-100">
               <div class="flex items-center space-x-3.5">
                 <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0">
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                  </svg>
                 </div>
                 <div>
                   <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Morning ritual</span>
-                  <h3 id="briefing-heading" class="text-sm sm:text-base lg:text-lg font-bold text-slate-900 mt-0.5 tracking-tight">Good morning. What matters today?</h3>
+                  <h3 id="briefing-heading"
+                    class="text-sm sm:text-base lg:text-lg font-bold text-slate-900 mt-0.5 tracking-tight">Good morning.
+                    What matters today?</h3>
                 </div>
               </div>
-              <button id="btn-dismiss-briefing" type="button" class="tap-target text-xs font-medium text-slate-500 hover:text-slate-800 px-3 py-1.5 rounded-xl hover:bg-slate-50 transition-colors shrink-0" aria-label="Dismiss daily briefing for today">
+              <button id="btn-dismiss-briefing" type="button"
+                class="tap-target text-xs font-medium text-slate-500 hover:text-slate-800 px-3 py-1.5 rounded-xl hover:bg-slate-50 transition-colors shrink-0"
+                aria-label="Dismiss daily briefing for today">
                 Dismiss
               </button>
             </div>
@@ -186,18 +266,27 @@
           </div>
 
           <!-- Phase 6: The Evening Close-out & Carry Forward (Night Ritual) -->
-          <div id="evening-closeout-card" class="card-surface bento-stage-card p-5 sm:p-6 lg:p-8 briefing-card-wrap hidden" role="region" aria-labelledby="closeout-heading">
+          <div id="evening-closeout-card"
+            class="card-surface bento-stage-card p-5 sm:p-6 lg:p-8 briefing-card-wrap hidden" role="region"
+            aria-labelledby="closeout-heading">
             <div class="flex items-center justify-between gap-4 pb-4 border-b border-slate-100">
               <div class="flex items-center space-x-3.5">
                 <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0">
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
                 </div>
                 <div>
-                  <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Evening close-out</span>
-                  <h3 id="closeout-heading" class="text-sm sm:text-base lg:text-lg font-bold text-slate-900 mt-0.5 tracking-tight">Let&apos;s close today. You have 0 tasks remaining.</h3>
+                  <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Evening
+                    close-out</span>
+                  <h3 id="closeout-heading"
+                    class="text-sm sm:text-base lg:text-lg font-bold text-slate-900 mt-0.5 tracking-tight">Let&apos;s
+                    close today. You have 0 tasks remaining.</h3>
                 </div>
               </div>
-              <button id="btn-close-day" type="button" class="tap-target text-xs font-semibold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/80 px-3.5 py-2 rounded-xl transition-colors shrink-0" aria-label="Close day and dismiss evening close-out">
+              <button id="btn-close-day" type="button"
+                class="tap-target text-xs font-semibold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/80 px-3.5 py-2 rounded-xl transition-colors shrink-0"
+                aria-label="Close day and dismiss evening close-out">
                 Close day
               </button>
             </div>
@@ -213,34 +302,51 @@
             </div>
             <div class="relative flex items-center">
               <label for="dash-quick-capture-input" class="sr-only">Quick brain dump inbox</label>
-              <svg class="w-4 h-4 text-slate-400 absolute left-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-              <input id="dash-quick-capture-input" type="text" maxlength="240" placeholder="Quick brain dump... Press Enter" class="bento-capture-input w-full h-12 pl-10 pr-24 text-xs sm:text-sm text-slate-900 focus:outline-none" />
-              <button id="btn-dash-quick-capture" type="button" class="tap-target quick-capture-submit-btn absolute right-2 h-8 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1 transition-colors" aria-label="Capture thought to inbox" title="Capture to inbox">
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg class="w-4 h-4 text-slate-400 absolute left-4 pointer-events-none" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+              <input id="dash-quick-capture-input" type="text" maxlength="240" placeholder="Quick Brain dump..."
+                class="bento-capture-input w-full h-12 pl-10 pr-24 text-xs sm:text-sm text-slate-900 focus:outline-none" />
+              <button id="btn-dash-quick-capture" type="button"
+                class="tap-target quick-capture-submit-btn absolute right-2 h-8 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1 transition-colors"
+                aria-label="Capture thought to inbox" title="Capture to inbox">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
                 <span>Add</span>
               </button>
             </div>
             <div id="dash-inbox-container" class="hidden mt-4 pt-3.5 border-t border-slate-100">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Captured thoughts</span>
-                <span id="dash-inbox-count" class="text-[10px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">0</span>
+                <span id="dash-inbox-count"
+                  class="text-[10px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">0</span>
               </div>
               <div id="dash-inbox-list" class="divide-y divide-slate-100"></div>
             </div>
           </div>
 
           <!-- Up Next: Priority Tasks Card (Main Stage) -->
-          <div id="dash-priority-tasks-card" class="card-surface bento-stage-card p-5 sm:p-6 lg:p-8 flex flex-col justify-between focus-collapsible">
+          <div id="dash-priority-tasks-card"
+            class="card-surface bento-stage-card p-5 sm:p-6 lg:p-8 flex flex-col justify-between focus-collapsible">
             <div>
               <div class="flex items-center justify-between pb-4 mb-3 border-b border-slate-100">
                 <div>
-                  <h3 class="font-bold text-slate-900 text-sm sm:text-base lg:text-lg flex items-center gap-2 tracking-tight">
-                    <svg class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  <h3
+                    class="font-bold text-slate-900 text-sm sm:text-base lg:text-lg flex items-center gap-2 tracking-tight">
+                    <svg class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M9 11l3 3L22 4" />
+                      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                    </svg>
                     <span>Up next · Priority tasks</span>
                   </h3>
                   <p class="text-xs text-slate-500 mt-0.5">Highest-leverage open items ready for execution.</p>
                 </div>
-                <button id="quick-view-tasks" type="button" class="tap-target text-xs font-semibold text-slate-700 hover:text-slate-900 bg-slate-100/80 hover:bg-slate-200/70 py-1.5 px-3 rounded-xl transition-colors">Manage</button>
+                <button id="quick-view-tasks" type="button"
+                  class="tap-target text-xs font-semibold text-slate-700 hover:text-slate-900 bg-slate-100/80 hover:bg-slate-200/70 py-1.5 px-3 rounded-xl transition-colors">Manage</button>
               </div>
               <div id="dash-tasks-container" class="divide-y divide-slate-100"></div>
             </div>
@@ -248,7 +354,8 @@
         </div>
 
         <!-- Right Column (Sidebar Snapshot - 4 Columns): Metrics Tiles, Habits Momentum, Skills, and Notes -->
-        <aside id="dashboard-snapshots-wrap" class="bento-sidebar-col space-y-6 focus-collapsible" aria-label="Workspace metrics and snapshots">
+        <aside id="dashboard-snapshots-wrap" class="bento-sidebar-col space-y-6 focus-collapsible"
+          aria-label="Workspace metrics and snapshots">
           <!-- 2x2 Bento Summary Metrics Grid -->
           <div id="dashboard-metrics-grid" class="grid grid-cols-2 gap-4 focus-collapsible">
             <div class="card-surface bento-metric-tile p-5">
@@ -273,11 +380,16 @@
           <div class="card-surface p-5 sm:p-6 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between pb-3.5 mb-2.5 border-b border-slate-100">
-                <h3 class="font-bold text-slate-900 text-xs sm:text-sm lg:text-base flex items-center gap-2 tracking-tight">
-                  <svg class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+                <h3
+                  class="font-bold text-slate-900 text-xs sm:text-sm lg:text-base flex items-center gap-2 tracking-tight">
+                  <svg class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M12 20v-6M6 20V10M18 20V4" />
+                  </svg>
                   <span>Momentum &amp; habits</span>
                 </h3>
-                <button id="quick-view-habits" type="button" class="tap-target text-xs font-semibold text-slate-600 hover:text-slate-900 py-1 px-2.5 -mr-1.5 rounded-lg hover:bg-slate-50 transition-colors">Manage</button>
+                <button id="quick-view-habits" type="button"
+                  class="tap-target text-xs font-semibold text-slate-600 hover:text-slate-900 py-1 px-2.5 -mr-1.5 rounded-lg hover:bg-slate-50 transition-colors">Manage</button>
               </div>
               <div id="dash-habits-container" class="divide-y divide-slate-100"></div>
             </div>
@@ -286,11 +398,18 @@
           <!-- Skill Progress Snapshot -->
           <div class="card-surface p-5 sm:p-6">
             <div class="flex items-center justify-between pb-3.5 mb-3 border-b border-slate-100">
-              <h3 class="font-bold text-slate-900 text-xs sm:text-sm lg:text-base flex items-center gap-2 tracking-tight">
-                <svg class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <h3
+                class="font-bold text-slate-900 text-xs sm:text-sm lg:text-base flex items-center gap-2 tracking-tight">
+                <svg class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
                 <span>Skill mastery</span>
               </h3>
-              <button id="quick-view-skills" type="button" class="tap-target text-xs font-semibold text-slate-600 hover:text-slate-900 py-1 px-2.5 -mr-1.5 rounded-lg hover:bg-slate-50 transition-colors">Manage</button>
+              <button id="quick-view-skills" type="button"
+                class="tap-target text-xs font-semibold text-slate-600 hover:text-slate-900 py-1 px-2.5 -mr-1.5 rounded-lg hover:bg-slate-50 transition-colors">Manage</button>
             </div>
             <div id="dash-skills-container" class="space-y-4"></div>
           </div>
@@ -298,11 +417,18 @@
           <!-- Recent Notes Snapshot -->
           <div class="card-surface p-5 sm:p-6">
             <div class="flex items-center justify-between pb-3.5 mb-2.5 border-b border-slate-100">
-              <h3 class="font-bold text-slate-900 text-xs sm:text-sm lg:text-base flex items-center gap-2 tracking-tight">
-                <svg class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <h3
+                class="font-bold text-slate-900 text-xs sm:text-sm lg:text-base flex items-center gap-2 tracking-tight">
+                <svg class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
                 <span>Recent notes</span>
               </h3>
-              <button id="quick-view-notes" type="button" class="tap-target text-xs font-semibold text-slate-600 hover:text-slate-900 py-1 px-2.5 -mr-1.5 rounded-lg hover:bg-slate-50 transition-colors">Open notes</button>
+              <button id="quick-view-notes" type="button"
+                class="tap-target text-xs font-semibold text-slate-600 hover:text-slate-900 py-1 px-2.5 -mr-1.5 rounded-lg hover:bg-slate-50 transition-colors">Open
+                notes</button>
             </div>
             <div id="dash-notes-container" class="divide-y divide-slate-100"></div>
           </div>
@@ -318,30 +444,20 @@
           <div class="w-full max-w-md mx-auto relative" id="focus-autocomplete-wrap">
             <label for="input-focus-session-name" class="sr-only">What are you focusing on?</label>
             <div class="relative flex items-center">
-              <input
-                id="input-focus-session-name"
-                type="text"
-                role="combobox"
-                aria-autocomplete="list"
-                aria-expanded="false"
-                aria-controls="focus-autocomplete-menu"
-                maxlength="140"
-                autocomplete="off"
+              <input id="input-focus-session-name" type="text" role="combobox" aria-autocomplete="list"
+                aria-expanded="false" aria-controls="focus-autocomplete-menu" maxlength="140" autocomplete="off"
                 placeholder="What are you focusing on?"
-                class="focus-session-title-input w-full text-center text-lg sm:text-2xl font-semibold text-slate-900 bg-transparent border-b border-slate-300 focus:border-slate-900 focus:outline-none transition-colors"
-              />
-              <button id="btn-unlink-focus-target" type="button" class="hidden absolute right-3 tap-target text-[11px] font-medium text-slate-500 hover:text-slate-800 bg-slate-100 hover:bg-slate-200/80 px-2.5 py-1 rounded-xl transition-colors" aria-label="Unlink target and use custom session name" title="Unlink target">
+                class="focus-session-title-input w-full text-center text-lg sm:text-2xl font-semibold text-slate-900 bg-transparent border-b border-slate-300 focus:border-slate-900 focus:outline-none transition-colors" />
+              <button id="btn-unlink-focus-target" type="button"
+                class="hidden absolute right-3 tap-target text-[11px] font-medium text-slate-500 hover:text-slate-800 bg-slate-100 hover:bg-slate-200/80 px-2.5 py-1 rounded-xl transition-colors"
+                aria-label="Unlink target and use custom session name" title="Unlink target">
                 Unlink &times;
               </button>
             </div>
 
             <!-- Floating Notion-Style Autocomplete Suggestion Menu -->
-            <div
-              id="focus-autocomplete-menu"
-              role="listbox"
-              aria-label="Matching tasks, habits, and skills"
-              class="focus-autocomplete-menu hidden"
-            ></div>
+            <div id="focus-autocomplete-menu" role="listbox" aria-label="Matching tasks, habits, and skills"
+              class="focus-autocomplete-menu hidden"></div>
 
             <!-- Hidden legacy compatibility hooks -->
             <input type="hidden" id="select-focus-target" value="none">
@@ -353,52 +469,79 @@
             <input type="hidden" id="select-timer-preset" value="25">
             <span id="label-timer-preset" class="hidden">25m</span>
 
-            <button type="button" data-val="15" data-label="15m" aria-pressed="false" class="timer-opt-btn tap-target h-10 px-5 py-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-xs font-medium text-slate-700 transition-colors">
+            <button type="button" data-val="15" data-label="15m" aria-pressed="false"
+              class="timer-opt-btn tap-target h-10 px-5 py-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-xs font-medium text-slate-700 transition-colors">
               15m
             </button>
-            <button type="button" data-val="25" data-label="25m" aria-pressed="true" class="timer-opt-btn tap-target h-10 px-5 py-2 rounded-full border border-slate-900 bg-slate-900 text-white text-xs font-semibold transition-colors">
+            <button type="button" data-val="25" data-label="25m" aria-pressed="true"
+              class="timer-opt-btn tap-target h-10 px-5 py-2 rounded-full border border-slate-900 bg-slate-900 text-white text-xs font-semibold transition-colors">
               25m
             </button>
-            <button type="button" data-val="45" data-label="45m" aria-pressed="false" class="timer-opt-btn tap-target h-10 px-5 py-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-xs font-medium text-slate-700 transition-colors">
+            <button type="button" data-val="45" data-label="45m" aria-pressed="false"
+              class="timer-opt-btn tap-target h-10 px-5 py-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-xs font-medium text-slate-700 transition-colors">
               45m
             </button>
-            <button type="button" data-val="60" data-label="60m" aria-pressed="false" class="timer-opt-btn tap-target h-10 px-5 py-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-xs font-medium text-slate-700 transition-colors">
+            <button type="button" data-val="60" data-label="60m" aria-pressed="false"
+              class="timer-opt-btn tap-target h-10 px-5 py-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-xs font-medium text-slate-700 transition-colors">
               60m
             </button>
 
-            <div class="custom-mins-wrap h-10 px-4 py-2 rounded-full border border-slate-200 bg-slate-50/90 flex items-center gap-1.5" title="Type any custom duration in minutes (1-240)">
+            <div
+              class="custom-mins-wrap h-10 px-4 py-2 rounded-full border border-slate-200 bg-slate-50/90 flex items-center gap-1.5"
+              title="Type any custom duration in minutes (1-240)">
               <label for="input-custom-minutes" class="sr-only">Custom focus duration in minutes</label>
-              <input id="input-custom-minutes" type="number" min="1" max="240" step="1" value="25" inputmode="numeric" class="custom-mins-input font-mono text-xs font-bold text-slate-900 bg-transparent text-center focus:outline-none" />
+              <input id="input-custom-minutes" type="number" min="1" max="240" step="1" value="25" inputmode="numeric"
+                class="custom-mins-input font-mono text-xs font-bold text-slate-900 bg-transparent text-center focus:outline-none" />
               <span class="text-[11px] font-medium text-slate-500 select-none">min</span>
             </div>
           </div>
 
           <!-- 3. Strictly Centered Hero Clock & Calm Blur Quote Stage -->
           <div class="flex flex-col items-center text-center">
-            <div id="main-timer-display" class="font-mono text-6xl sm:hidden font-semibold text-slate-900 tracking-tight tabular-nums leading-none">25:00</div>
-            <div id="desk-timer-display" class="hidden sm:block font-mono focus-studio-clock font-semibold text-slate-900 tracking-tight tabular-nums leading-none">25:00</div>
-            <div id="focus-studio-quote-wrap" class="mt-4 max-w-md mx-auto px-3 min-h-[2.5rem] flex items-center justify-center">
-              <p id="focus-studio-quote" class="focus-quote-text text-xs sm:text-sm text-slate-500">&ldquo;Deep work is your superpower.&rdquo;</p>
+            <div id="main-timer-display"
+              class="font-mono text-6xl sm:hidden font-semibold text-slate-900 tracking-tight tabular-nums leading-none">
+              25:00</div>
+            <div id="desk-timer-display"
+              class="hidden sm:block font-mono focus-studio-clock font-semibold text-slate-900 tracking-tight tabular-nums leading-none">
+              25:00</div>
+            <div id="focus-studio-quote-wrap"
+              class="mt-4 max-w-md mx-auto px-3 min-h-[2.5rem] flex items-center justify-center">
+              <p id="focus-studio-quote" class="focus-quote-text text-xs sm:text-sm text-slate-500">&ldquo;Deep work is
+                your superpower.&rdquo;</p>
             </div>
           </div>
 
           <!-- 4. Tightly Clustered Primary Action Controls with Generous Breathing Room -->
           <div class="flex flex-wrap items-center justify-center gap-3">
-            <button id="btn-timer-start" type="button" class="tap-target h-12 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold px-8 py-3 rounded-full shadow-xs transition-colors">
+            <button id="btn-timer-start" type="button"
+              class="tap-target h-12 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold px-8 py-3 rounded-full shadow-xs transition-colors">
               Start session
             </button>
-            <button id="btn-timer-reset" type="button" class="tap-target h-12 border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs sm:text-sm font-medium px-6 py-3 rounded-full transition-colors">
+            <button id="btn-timer-reset" type="button"
+              class="tap-target h-12 border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs sm:text-sm font-medium px-6 py-3 rounded-full transition-colors">
               Reset
             </button>
-            <button id="btn-enter-zen-focus" type="button" class="tap-target h-12 px-5 py-3 rounded-full border border-slate-200 bg-slate-50/80 hover:bg-slate-100 text-xs sm:text-sm font-semibold text-slate-700 flex items-center gap-1.5 transition-colors" title="Open full-screen immersive view">
-              <svg class="w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            <button id="btn-enter-zen-focus" type="button"
+              class="tap-target h-12 px-5 py-3 rounded-full border border-slate-200 bg-slate-50/80 hover:bg-slate-100 text-xs sm:text-sm font-semibold text-slate-700 flex items-center gap-1.5 transition-colors"
+              title="Open full-screen immersive view">
+              <svg class="w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <polyline points="15 3 21 3 21 9" />
+                <polyline points="9 21 3 21 3 15" />
+                <line x1="21" y1="3" x2="14" y2="10" />
+                <line x1="3" y1="21" x2="10" y2="14" />
+              </svg>
               <span>Full screen</span>
             </button>
           </div>
 
           <!-- Transient Tooltip (Smoothly appears for 4s on Focus tab open, then permanently fades out) -->
           <div id="focus-shortcut-hint" class="focus-shortcut-hint" role="status" aria-live="polite">
-            <span>Press <kbd class="px-1.5 py-0.5 bg-slate-100 border border-slate-200 rounded text-[10px] font-mono text-slate-600">Space</kbd> to pause/resume &middot; <kbd class="px-1.5 py-0.5 bg-slate-100 border border-slate-200 rounded text-[10px] font-mono text-slate-600">Esc</kbd> to minimize</span>
+            <span>Press <kbd
+                class="px-1.5 py-0.5 bg-slate-100 border border-slate-200 rounded text-[10px] font-mono text-slate-600">Space</kbd>
+              to pause/resume &middot; <kbd
+                class="px-1.5 py-0.5 bg-slate-100 border border-slate-200 rounded text-[10px] font-mono text-slate-600">Esc</kbd>
+              to minimize</span>
           </div>
         </div>
 
@@ -411,10 +554,15 @@
       <div class="flex items-center justify-between border-b border-slate-200/80 pb-3">
         <div>
           <h2 class="text-base sm:text-lg font-bold text-slate-900">Habits &amp; momentum</h2>
-          <p class="text-xs text-slate-500 mt-0.5">6-day consistency unlocks a 1-day Momentum Shield. Tap any day to toggle.</p>
+          <p class="text-xs text-slate-500 mt-0.5">6-day consistency unlocks a 1-day Momentum Shield. Tap any day to
+            toggle.</p>
         </div>
-        <button id="btn-open-add-habit" type="button" class="tap-target h-10 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-3.5 rounded-xl flex items-center gap-1.5 shrink-0 shadow-2xs">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <button id="btn-open-add-habit" type="button"
+          class="tap-target h-10 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-3.5 rounded-xl flex items-center gap-1.5 shrink-0 shadow-2xs">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
           <span>Add habit</span>
         </button>
       </div>
@@ -429,8 +577,12 @@
           <h2 class="text-base sm:text-lg font-bold text-slate-900">Tasks</h2>
           <p class="text-xs text-slate-500 mt-0.5">Actionable items sorted by priority.</p>
         </div>
-        <button id="btn-open-add-task" type="button" class="tap-target h-10 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-3.5 rounded-xl flex items-center gap-1.5 shrink-0 shadow-2xs">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <button id="btn-open-add-task" type="button"
+          class="tap-target h-10 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-3.5 rounded-xl flex items-center gap-1.5 shrink-0 shadow-2xs">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
           <span>Add task</span>
         </button>
       </div>
@@ -439,17 +591,27 @@
       <div id="tasks-quick-capture-card" class="card-surface p-3.5 sm:p-4">
         <div class="relative flex items-center">
           <label for="quick-capture-input" class="sr-only">Quick brain dump inbox</label>
-          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-          <input id="quick-capture-input" type="text" maxlength="240" placeholder="Quick brain dump... Press Enter" class="bento-capture-input w-full h-12 pl-10 pr-24 text-xs sm:text-sm text-slate-900 focus:outline-none" />
-          <button id="btn-tasks-quick-capture" type="button" class="tap-target quick-capture-submit-btn absolute right-2 h-8 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1 transition-colors" aria-label="Capture thought to inbox" title="Capture to inbox">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          <input id="quick-capture-input" type="text" maxlength="240" placeholder="Quick Brain dump..."
+            class="bento-capture-input w-full h-12 pl-10 pr-24 text-xs sm:text-sm text-slate-900 focus:outline-none" />
+          <button id="btn-tasks-quick-capture" type="button"
+            class="tap-target quick-capture-submit-btn absolute right-2 h-8 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1 transition-colors"
+            aria-label="Capture thought to inbox" title="Capture to inbox">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
             <span>Add</span>
           </button>
         </div>
         <div id="tasks-inbox-container" class="hidden mt-3 pt-2.5 border-t border-slate-100">
           <div class="flex items-center justify-between mb-1.5">
             <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-500">Quick capture inbox</span>
-            <span id="tasks-inbox-count" class="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">0</span>
+            <span id="tasks-inbox-count"
+              class="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">0</span>
           </div>
           <div id="tasks-inbox-list" class="divide-y divide-slate-100"></div>
         </div>
@@ -458,17 +620,30 @@
       <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full">
         <div class="relative flex-1 flex items-center">
           <label for="task-search-input" class="sr-only">Search tasks</label>
-          <svg class="w-4 h-4 text-slate-500 absolute left-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input type="text" id="task-search-input" placeholder="Search tasks..." class="search-bar-input w-full h-11 text-xs sm:text-sm pl-10 pr-4 bg-white border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 transition-colors">
+          <svg class="w-4 h-4 text-slate-500 absolute left-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" id="task-search-input" placeholder="Search tasks..."
+            class="search-bar-input w-full h-11 text-xs sm:text-sm pl-10 pr-4 bg-white border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 transition-colors">
         </div>
         <div class="flex flex-wrap items-center gap-2">
-          <div class="grid grid-cols-3 sm:flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200 flex-1 sm:flex-initial">
-            <button id="filter-all" type="button" class="tap-target h-9 text-xs font-semibold px-3 rounded-lg bg-slate-900 text-white">All</button>
-            <button id="filter-active" type="button" class="tap-target h-9 text-xs font-medium px-3 rounded-lg text-slate-600 hover:text-slate-900">Active</button>
-            <button id="filter-completed" type="button" class="tap-target h-9 text-xs font-medium px-3 rounded-lg text-slate-600 hover:text-slate-900">Completed</button>
+          <div
+            class="grid grid-cols-3 sm:flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200 flex-1 sm:flex-initial">
+            <button id="filter-all" type="button"
+              class="tap-target h-9 text-xs font-semibold px-3 rounded-lg bg-slate-900 text-white">All</button>
+            <button id="filter-active" type="button"
+              class="tap-target h-9 text-xs font-medium px-3 rounded-lg text-slate-600 hover:text-slate-900">Active</button>
+            <button id="filter-completed" type="button"
+              class="tap-target h-9 text-xs font-medium px-3 rounded-lg text-slate-600 hover:text-slate-900">Completed</button>
           </div>
-          <button id="btn-sort-priority" type="button" aria-pressed="false" class="tap-target h-11 sm:h-11 text-xs font-medium px-3.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 flex items-center justify-center gap-1.5 shrink-0">
-            <svg class="w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5h10M11 9h7M11 13h4M3 17l3 3 3-3M6 18V4"/></svg>
+          <button id="btn-sort-priority" type="button" aria-pressed="false"
+            class="tap-target h-11 sm:h-11 text-xs font-medium px-3.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 flex items-center justify-center gap-1.5 shrink-0">
+            <svg class="w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M11 5h10M11 9h7M11 13h4M3 17l3 3 3-3M6 18V4" />
+            </svg>
             <span id="label-sort-priority">Sort: Default</span>
           </button>
         </div>
@@ -484,8 +659,12 @@
           <h2 class="text-base sm:text-lg font-bold text-slate-900">Skills</h2>
           <p class="text-xs text-slate-500 mt-0.5">Deliberate practice hours and topic milestones.</p>
         </div>
-        <button id="btn-open-add-skill" type="button" class="tap-target h-10 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-3.5 rounded-xl flex items-center gap-1.5 shrink-0 shadow-2xs">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <button id="btn-open-add-skill" type="button"
+          class="tap-target h-10 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-3.5 rounded-xl flex items-center gap-1.5 shrink-0 shadow-2xs">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
           <span>Add skill</span>
         </button>
       </div>
@@ -500,16 +679,25 @@
           <h2 class="text-base sm:text-lg font-bold text-slate-900">Notes</h2>
           <p class="text-xs text-slate-500 mt-0.5">Study summaries, observations, and quick thoughts.</p>
         </div>
-        <button id="btn-open-add-note" type="button" class="tap-target h-10 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-3.5 rounded-xl flex items-center gap-1.5 shrink-0 shadow-2xs">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <button id="btn-open-add-note" type="button"
+          class="tap-target h-10 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-3.5 rounded-xl flex items-center gap-1.5 shrink-0 shadow-2xs">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
           <span>New note</span>
         </button>
       </div>
 
       <div class="relative flex items-center w-full">
         <label for="note-search-input" class="sr-only">Search notes by title or content</label>
-        <svg class="w-4 h-4 text-slate-500 absolute left-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="text" id="note-search-input" placeholder="Search notes by title or content..." class="search-bar-input w-full h-11 text-xs sm:text-sm pl-10 pr-4 bg-white border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 transition-colors">
+        <svg class="w-4 h-4 text-slate-500 absolute left-3.5 pointer-events-none" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input type="text" id="note-search-input" placeholder="Search notes by title or content..."
+          class="search-bar-input w-full h-11 text-xs sm:text-sm pl-10 pr-4 bg-white border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 transition-colors">
       </div>
 
       <div id="notes-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
@@ -526,14 +714,18 @@
       <div class="card-surface p-4 sm:p-5 space-y-3">
         <h3 class="text-xs font-semibold text-slate-900">Workspace profile</h3>
         <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 rounded-xl bg-slate-900 text-white font-bold text-xs flex items-center justify-center shrink-0">
+          <div
+            class="w-10 h-10 rounded-xl bg-slate-900 text-white font-bold text-xs flex items-center justify-center shrink-0">
             <span id="profile-avatar">W</span>
           </div>
           <div class="flex-1">
             <label for="input-user-name" class="sr-only">Workspace profile name</label>
-            <input type="text" id="input-user-name" placeholder="Workspace name" class="w-full h-10 text-xs sm:text-sm font-medium px-3 border border-slate-200 rounded-xl focus:outline-none focus:border-slate-400" value="Workspace">
+            <input type="text" id="input-user-name" placeholder="Workspace name"
+              class="w-full h-10 text-xs sm:text-sm font-medium px-3 border border-slate-200 rounded-xl focus:outline-none focus:border-slate-400"
+              value="Workspace">
           </div>
-          <button id="btn-save-username" type="button" class="tap-target h-10 bg-slate-900 text-white font-semibold text-xs px-4 rounded-xl hover:bg-slate-800">
+          <button id="btn-save-username" type="button"
+            class="tap-target h-10 bg-slate-900 text-white font-semibold text-xs px-4 rounded-xl hover:bg-slate-800">
             Save
           </button>
         </div>
@@ -544,23 +736,28 @@
         <div class="flex items-center justify-between gap-2">
           <div>
             <h3 class="text-xs font-semibold text-slate-900">Storage &amp; offline engines</h3>
-            <p id="sw-status-text" class="text-[11px] text-slate-500 mt-0.5">LocalStorage + IndexedDB + Cache API active</p>
+            <p id="sw-status-text" class="text-[11px] text-slate-500 mt-0.5">LocalStorage + IndexedDB + Cache API active
+            </p>
           </div>
           <span id="sw-badge" class="hidden">Active</span>
-          <button id="btn-verify-storage" type="button" class="tap-target h-9 text-xs font-medium px-3 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 shrink-0">
+          <button id="btn-verify-storage" type="button"
+            class="tap-target h-9 text-xs font-medium px-3 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 shrink-0">
             Verify storage
           </button>
         </div>
         <div class="grid grid-cols-3 gap-2 pt-1 text-[11px]">
-          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
+          <div
+            class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
             <span class="text-slate-500 font-medium">LocalStorage</span>
             <span id="status-ls" class="text-emerald-700 font-semibold">Ready</span>
           </div>
-          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
+          <div
+            class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
             <span class="text-slate-500 font-medium">IndexedDB</span>
             <span id="status-idb" class="text-emerald-700 font-semibold">Ready</span>
           </div>
-          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
+          <div
+            class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
             <span class="text-slate-500 font-medium">Cache API</span>
             <span id="status-cache" class="text-emerald-700 font-semibold">Ready</span>
           </div>
@@ -570,7 +767,8 @@
             <div class="text-xs font-medium text-slate-800">Audio feedback</div>
             <div class="text-[11px] text-slate-500">Subtle acoustic confirmation on actions.</div>
           </div>
-          <button id="toggle-sound-btn" type="button" aria-label="Toggle audio feedback" class="tap-target w-11 h-6 bg-slate-900 rounded-full p-0.5 flex items-center justify-end">
+          <button id="toggle-sound-btn" type="button" aria-label="Toggle audio feedback"
+            class="tap-target w-11 h-6 bg-slate-900 rounded-full p-0.5 flex items-center justify-end">
             <div id="toggle-sound-knob" class="w-5 h-5 rounded-full bg-white shadow-2xs transition-transform"></div>
           </button>
         </div>
@@ -580,19 +778,24 @@
       <div id="pwa-install-card" class="card-surface p-4 sm:p-5 flex items-center justify-between gap-3">
         <div class="flex items-center space-x-3.5">
           <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center shrink-0">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
           </div>
           <div>
             <h3 class="text-xs sm:text-sm font-semibold text-slate-900">Install Pulse Workspace</h3>
-            <p id="pwa-install-desc" class="text-[11px] text-slate-500 mt-0.5">Install as a standalone application on your device.</p>
+            <p id="pwa-install-desc" class="text-[11px] text-slate-500 mt-0.5">Install as a standalone application on
+              your device.</p>
           </div>
         </div>
-        <button id="btn-install-pwa" type="button" class="tap-target h-10 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1.5 shrink-0 shadow-2xs transition-colors">
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+        <button id="btn-install-pwa" type="button"
+          class="tap-target h-10 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1.5 shrink-0 shadow-2xs transition-colors">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+          </svg>
           <span id="label-install-pwa">Install app</span>
         </button>
       </div>
@@ -601,23 +804,39 @@
       <div class="card-surface p-4 sm:p-5 space-y-3">
         <h3 class="text-xs font-semibold text-slate-900">Workspace data &amp; backups</h3>
         <p class="text-xs text-slate-500 leading-relaxed">
-          All data stays 100% locally on your device. Export or import JSON backup files anytime, or clear your workspace.
+          All data stays 100% locally on your device. Export or import JSON backup files anytime, or clear your
+          workspace.
         </p>
         <div class="flex flex-col sm:flex-row flex-wrap gap-2 pt-1">
-          <button id="btn-clear-all-data" type="button" class="tap-target h-10 bg-rose-600 hover:bg-rose-700 text-white font-semibold text-xs px-4 rounded-xl flex items-center justify-center gap-1.5">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          <button id="btn-clear-all-data" type="button"
+            class="tap-target h-10 bg-rose-600 hover:bg-rose-700 text-white font-semibold text-xs px-4 rounded-xl flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6" />
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+            </svg>
             <span>Clear workspace</span>
           </button>
-          <button id="btn-export-data" type="button" class="tap-target h-10 border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium text-xs px-4 rounded-xl flex items-center justify-center gap-1.5">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <button id="btn-export-data" type="button"
+            class="tap-target h-10 border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium text-xs px-4 rounded-xl flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
             <span>Export JSON</span>
           </button>
-          <label for="input-import-json" class="tap-target h-10 cursor-pointer border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium text-xs px-4 rounded-xl flex items-center justify-center gap-1.5">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <label for="input-import-json"
+            class="tap-target h-10 cursor-pointer border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium text-xs px-4 rounded-xl flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
+            </svg>
             <span>Import JSON</span>
             <input type="file" id="input-import-json" accept=".json" class="hidden">
           </label>
-          <button id="btn-reset-data" type="button" class="tap-target h-10 border border-slate-200 hover:bg-slate-50 text-slate-600 font-medium text-xs px-4 rounded-xl flex items-center justify-center">
+          <button id="btn-reset-data" type="button"
+            class="tap-target h-10 border border-slate-200 hover:bg-slate-50 text-slate-600 font-medium text-xs px-4 rounded-xl flex items-center justify-center">
             Reset defaults
           </button>
         </div>
@@ -626,269 +845,414 @@
 
   </main>
 
-        <!-- Full-Screen Minimalist Immersive Focus Takeover Stage (Strictly Centered Cluster, No Scroll) -->
-        <div id="focus-mode-stage" class="focus-immersive-takeover hidden" role="dialog" aria-modal="true" aria-labelledby="focus-stage-target-title">
-          <div class="focus-immersive-inner">
-            <!-- Top of Cluster: Active Task / Skill / Custom Session Name -->
-            <div class="focus-immersive-header">
-              <span id="focus-stage-type-badge" class="sr-only">Active focus session</span>
-              <span id="focus-stage-context-label" class="focus-immersive-eyebrow">Focusing on</span>
-              <h3 id="focus-stage-target-title" class="focus-immersive-title">What are you focusing on?</h3>
-            </div>
+  <!-- Full-Screen Minimalist Immersive Focus Takeover Stage (Strictly Centered Cluster, No Scroll) -->
+  <div id="focus-mode-stage" class="focus-immersive-takeover hidden" role="dialog" aria-modal="true"
+    aria-labelledby="focus-stage-target-title">
+    <div class="focus-immersive-inner">
+      <!-- Top of Cluster: Active Task / Skill / Custom Session Name -->
+      <div class="focus-immersive-header">
+        <span id="focus-stage-type-badge" class="sr-only">Active focus session</span>
+        <span id="focus-stage-context-label" class="focus-immersive-eyebrow">Focusing on</span>
+        <h3 id="focus-stage-target-title" class="focus-immersive-title">What are you focusing on?</h3>
+      </div>
 
-            <!-- Middle of Cluster: Hero Tabular Countdown & Slow Blur Quote Engine -->
-            <div class="focus-immersive-center">
-              <div id="focus-stage-clock" class="font-mono text-slate-900 focus-hero-clock">25:00</div>
-              <div class="sr-only" aria-hidden="true"><div id="focus-stage-progress" style="width: 0%"></div></div>
-              <div class="focus-quote-stage">
-                <p id="focus-motivation-quote" class="focus-quote-text">&ldquo;Deep work is your superpower.&rdquo;</p>
-              </div>
-            </div>
-
-            <!-- Bottom of Cluster: Tightly Grouped Pause / Stop / Minimize Controls -->
-            <div class="focus-immersive-controls">
-              <button id="btn-immersive-pause" type="button" class="tap-target focus-btn-primary">Pause</button>
-              <button id="btn-immersive-stop" type="button" class="tap-target focus-btn-secondary">Stop</button>
-              <button id="btn-minimize-focus" type="button" class="tap-target focus-btn-secondary" title="Minimize to floating timer (Esc)">Minimize</button>
-            </div>
-          </div>
+      <!-- Middle of Cluster: Hero Tabular Countdown & Slow Blur Quote Engine -->
+      <div class="focus-immersive-center">
+        <div id="focus-stage-clock" class="font-mono text-slate-900 focus-hero-clock">25:00</div>
+        <div class="sr-only" aria-hidden="true">
+          <div id="focus-stage-progress" style="width: 0%"></div>
         </div>
+        <div class="focus-quote-stage">
+          <p id="focus-motivation-quote" class="focus-quote-text">&ldquo;Deep work is your superpower.&rdquo;</p>
+        </div>
+      </div>
+
+      <!-- Bottom of Cluster: Tightly Grouped Pause / Stop / Minimize Controls -->
+      <div class="focus-immersive-controls">
+        <button id="btn-immersive-pause" type="button" class="tap-target focus-btn-primary">Pause</button>
+        <button id="btn-immersive-stop" type="button" class="tap-target focus-btn-secondary">Stop</button>
+        <button id="btn-minimize-focus" type="button" class="tap-target focus-btn-secondary"
+          title="Minimize to floating timer (Esc)">Minimize</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Floating Mini Timer Indicator (Persists across all non-Focus tabs when a session is active) -->
-  <div id="floating-mini-timer" class="floating-mini-timer hidden" role="status" aria-live="off" aria-label="Active focus countdown">
+  <div id="floating-mini-timer" class="floating-mini-timer hidden" role="status" aria-live="off"
+    aria-label="Active focus countdown">
     <button id="btn-mini-timer-open" type="button" class="tap-target flex items-center gap-2.5 text-left pr-1">
       <span class="w-2 h-2 rounded-full bg-white focus-pulse-dot shrink-0"></span>
       <div class="min-w-0">
-        <div id="mini-timer-target" class="text-[10px] font-medium text-slate-300 truncate max-w-[120px]">Focus session</div>
-        <div id="mini-timer-clock" class="font-mono text-xs font-bold text-white tracking-tight tabular-nums">25:00</div>
+        <div id="mini-timer-target" class="text-[10px] font-medium text-slate-300 truncate max-w-[120px]">Focus session
+        </div>
+        <div id="mini-timer-clock" class="font-mono text-xs font-bold text-white tracking-tight tabular-nums">25:00
+        </div>
       </div>
     </button>
     <div class="flex items-center gap-1 pl-2 border-l border-white/15">
-      <button id="btn-mini-timer-toggle" type="button" class="tap-target h-7 px-2.5 rounded-lg bg-white/15 hover:bg-white/25 text-[11px] font-semibold text-white transition-colors">Pause</button>
-      <button id="btn-mini-timer-zen" type="button" class="tap-target w-7 h-7 rounded-lg hover:bg-white/15 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Expand full-screen focus mode" title="Full screen">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      <button id="btn-mini-timer-toggle" type="button"
+        class="tap-target h-7 px-2.5 rounded-lg bg-white/15 hover:bg-white/25 text-[11px] font-semibold text-white transition-colors">Pause</button>
+      <button id="btn-mini-timer-zen" type="button"
+        class="tap-target w-7 h-7 rounded-lg hover:bg-white/15 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
+        aria-label="Expand full-screen focus mode" title="Full screen">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 3 21 3 21 9" />
+          <polyline points="9 21 3 21 3 15" />
+          <line x1="21" y1="3" x2="14" y2="10" />
+          <line x1="3" y1="21" x2="10" y2="14" />
+        </svg>
       </button>
     </div>
   </div>
 
   <!-- Mobile Bottom Navigation Bar (With Safe-Area Bottom Inset) -->
-  <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200/90 px-1 pt-1.5 safe-bottom-nav z-40 grid grid-cols-7 items-center">
-    <button id="mob-tab-dashboard" type="button" class="tap-target flex flex-col items-center justify-center py-1 text-slate-900 font-semibold">
-      <div id="mob-pill-dashboard" class="w-9 h-7 rounded-full bg-slate-900 text-white flex items-center justify-center transition-colors">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+  <nav
+    class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200/90 px-1 pt-1.5 safe-bottom-nav z-40 grid grid-cols-7 items-center">
+    <button id="mob-tab-dashboard" type="button"
+      class="tap-target flex flex-col items-center justify-center py-1 text-slate-900 font-semibold">
+      <div id="mob-pill-dashboard"
+        class="w-9 h-7 rounded-full bg-slate-900 text-white flex items-center justify-center transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7" rx="1" />
+          <rect x="14" y="3" width="7" height="7" rx="1" />
+          <rect x="14" y="14" width="7" height="7" rx="1" />
+          <rect x="3" y="14" width="7" height="7" rx="1" />
+        </svg>
       </div>
       <span class="text-[10px] mt-1 tracking-tight">Overview</span>
     </button>
-    <button id="mob-tab-focus" type="button" class="tap-target flex flex-col items-center justify-center py-1 text-slate-500 font-medium">
-      <div id="mob-pill-focus" class="w-9 h-7 rounded-full bg-transparent text-slate-500 flex items-center justify-center transition-colors">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <button id="mob-tab-focus" type="button"
+      class="tap-target flex flex-col items-center justify-center py-1 text-slate-500 font-medium">
+      <div id="mob-pill-focus"
+        class="w-9 h-7 rounded-full bg-transparent text-slate-500 flex items-center justify-center transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
       </div>
       <span class="text-[10px] mt-1 tracking-tight">Focus</span>
     </button>
-    <button id="mob-tab-habits" type="button" class="tap-target flex flex-col items-center justify-center py-1 text-slate-500 font-medium">
-      <div id="mob-pill-habits" class="w-10 h-7 rounded-full bg-transparent text-slate-500 flex items-center justify-center transition-colors">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+    <button id="mob-tab-habits" type="button"
+      class="tap-target flex flex-col items-center justify-center py-1 text-slate-500 font-medium">
+      <div id="mob-pill-habits"
+        class="w-10 h-7 rounded-full bg-transparent text-slate-500 flex items-center justify-center transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20v-6M6 20V10M18 20V4" />
+        </svg>
       </div>
       <span class="text-[10px] mt-1 tracking-tight">Habits</span>
     </button>
-    <button id="mob-tab-tasks" type="button" class="tap-target flex flex-col items-center justify-center py-1 text-slate-500 font-medium">
-      <div id="mob-pill-tasks" class="w-10 h-7 rounded-full bg-transparent text-slate-500 flex items-center justify-center transition-colors">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    <button id="mob-tab-tasks" type="button"
+      class="tap-target flex flex-col items-center justify-center py-1 text-slate-500 font-medium">
+      <div id="mob-pill-tasks"
+        class="w-10 h-7 rounded-full bg-transparent text-slate-500 flex items-center justify-center transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4" />
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+        </svg>
       </div>
       <span class="text-[10px] mt-1 tracking-tight">Tasks</span>
     </button>
-    <button id="mob-tab-skills" type="button" class="tap-target flex flex-col items-center justify-center py-1 text-slate-500 font-medium">
-      <div id="mob-pill-skills" class="w-10 h-7 rounded-full bg-transparent text-slate-500 flex items-center justify-center transition-colors">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+    <button id="mob-tab-skills" type="button"
+      class="tap-target flex flex-col items-center justify-center py-1 text-slate-500 font-medium">
+      <div id="mob-pill-skills"
+        class="w-10 h-7 rounded-full bg-transparent text-slate-500 flex items-center justify-center transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="12" r="6" />
+          <circle cx="12" cy="12" r="2" />
+        </svg>
       </div>
       <span class="text-[10px] mt-1 tracking-tight">Skills</span>
     </button>
-    <button id="mob-tab-notes" type="button" class="tap-target flex flex-col items-center justify-center py-1 text-slate-500 font-medium">
-      <div id="mob-pill-notes" class="w-10 h-7 rounded-full bg-transparent text-slate-500 flex items-center justify-center transition-colors">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    <button id="mob-tab-notes" type="button"
+      class="tap-target flex flex-col items-center justify-center py-1 text-slate-500 font-medium">
+      <div id="mob-pill-notes"
+        class="w-10 h-7 rounded-full bg-transparent text-slate-500 flex items-center justify-center transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+        </svg>
       </div>
       <span class="text-[10px] mt-1 tracking-tight">Notes</span>
     </button>
-    <button id="mob-tab-settings" type="button" class="tap-target flex flex-col items-center justify-center py-1 text-slate-500 font-medium">
-      <div id="mob-pill-settings" class="w-10 h-7 rounded-full bg-transparent text-slate-500 flex items-center justify-center transition-colors">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    <button id="mob-tab-settings" type="button"
+      class="tap-target flex flex-col items-center justify-center py-1 text-slate-500 font-medium">
+      <div id="mob-pill-settings"
+        class="w-10 h-7 rounded-full bg-transparent text-slate-500 flex items-center justify-center transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3" />
+          <path
+            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        </svg>
       </div>
       <span class="text-[10px] mt-1 tracking-tight">Settings</span>
     </button>
   </nav>
 
   <!-- Add / Edit Habit Modal -->
-  <div id="modal-habit" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
-    <div class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-sm w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
+  <div id="modal-habit"
+    class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
+    <div
+      class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-sm w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
       <div class="w-10 h-1 bg-slate-200 rounded-full mx-auto mb-1 sm:hidden"></div>
       <div class="flex items-center justify-between">
         <h3 id="modal-habit-heading" class="font-bold text-slate-900 text-sm sm:text-base">New daily habit</h3>
-        <button id="btn-close-habit-modal" type="button" class="tap-target w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 flex items-center justify-center" aria-label="Close modal">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <button id="btn-close-habit-modal" type="button"
+          class="tap-target w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 flex items-center justify-center"
+          aria-label="Close modal">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
       <div>
         <label class="block text-xs font-medium text-slate-600 mb-1.5" for="modal-habit-name">Habit title</label>
-        <input type="text" id="modal-habit-name" placeholder="e.g. Daily reading session" class="w-full h-11 text-xs sm:text-sm px-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500">
+        <input type="text" id="modal-habit-name" placeholder="e.g. Daily reading session"
+          class="w-full h-11 text-xs sm:text-sm px-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500">
       </div>
       <div>
-        <label id="label-habit-cat" for="modal-habit-cat" class="block text-xs font-medium text-slate-600 mb-1.5">Category</label>
+        <label id="label-habit-cat" for="modal-habit-cat"
+          class="block text-xs font-medium text-slate-600 mb-1.5">Category</label>
         <input type="hidden" id="modal-habit-cat" value="Academic">
         <div class="grid grid-cols-2 gap-2" id="habit-cat-pills" role="group" aria-labelledby="label-habit-cat">
-          <button type="button" data-val="Academic" class="habit-cat-btn tap-target h-10 rounded-xl border border-slate-900 bg-slate-900 text-white text-xs font-semibold px-3 flex items-center justify-center">Academic</button>
-          <button type="button" data-val="Routine" class="habit-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Routine</button>
-          <button type="button" data-val="Leadership" class="habit-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Leadership</button>
-          <button type="button" data-val="Health" class="habit-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Health</button>
+          <button type="button" data-val="Academic"
+            class="habit-cat-btn tap-target h-10 rounded-xl border border-slate-900 bg-slate-900 text-white text-xs font-semibold px-3 flex items-center justify-center">Academic</button>
+          <button type="button" data-val="Routine"
+            class="habit-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Routine</button>
+          <button type="button" data-val="Leadership"
+            class="habit-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Leadership</button>
+          <button type="button" data-val="Health"
+            class="habit-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Health</button>
         </div>
       </div>
       <div class="flex justify-end space-x-2 pt-2">
-        <button id="btn-cancel-habit-modal" type="button" class="tap-target h-10 text-xs font-medium text-slate-600 hover:bg-slate-100 px-4 rounded-xl">Cancel</button>
-        <button id="btn-save-habit-modal" type="button" class="tap-target h-10 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 px-5 rounded-xl">Save habit</button>
+        <button id="btn-cancel-habit-modal" type="button"
+          class="tap-target h-10 text-xs font-medium text-slate-600 hover:bg-slate-100 px-4 rounded-xl">Cancel</button>
+        <button id="btn-save-habit-modal" type="button"
+          class="tap-target h-10 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 px-5 rounded-xl">Save
+          habit</button>
       </div>
     </div>
   </div>
 
   <!-- Add / Edit Task Modal -->
-  <div id="modal-task" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
-    <div class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-sm w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
+  <div id="modal-task"
+    class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
+    <div
+      class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-sm w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
       <div class="w-10 h-1 bg-slate-200 rounded-full mx-auto mb-1 sm:hidden"></div>
       <div class="flex items-center justify-between">
         <h3 id="modal-task-heading" class="font-bold text-slate-900 text-sm sm:text-base">New task</h3>
-        <button id="btn-close-task-modal" type="button" class="tap-target w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 flex items-center justify-center" aria-label="Close modal">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <button id="btn-close-task-modal" type="button"
+          class="tap-target w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 flex items-center justify-center"
+          aria-label="Close modal">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
       <div>
         <label class="block text-xs font-medium text-slate-600 mb-1.5" for="modal-task-title">Task description</label>
-        <input type="text" id="modal-task-title" placeholder="e.g. Complete project documentation" class="w-full h-11 text-xs sm:text-sm px-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500">
+        <input type="text" id="modal-task-title" placeholder="e.g. Complete project documentation"
+          class="w-full h-11 text-xs sm:text-sm px-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500">
       </div>
       <div>
-        <label id="label-task-prio" for="modal-task-prio" class="block text-xs font-medium text-slate-600 mb-1.5">Priority</label>
+        <label id="label-task-prio" for="modal-task-prio"
+          class="block text-xs font-medium text-slate-600 mb-1.5">Priority</label>
         <input type="hidden" id="modal-task-prio" value="Medium">
         <div class="grid grid-cols-3 gap-2" id="task-prio-pills" role="group" aria-labelledby="label-task-prio">
-          <button type="button" data-val="High" class="task-prio-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">High</button>
-          <button type="button" data-val="Medium" class="task-prio-btn tap-target h-10 rounded-xl border border-slate-900 bg-slate-900 text-white text-xs font-semibold px-3 flex items-center justify-center">Medium</button>
-          <button type="button" data-val="Low" class="task-prio-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Low</button>
+          <button type="button" data-val="High"
+            class="task-prio-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">High</button>
+          <button type="button" data-val="Medium"
+            class="task-prio-btn tap-target h-10 rounded-xl border border-slate-900 bg-slate-900 text-white text-xs font-semibold px-3 flex items-center justify-center">Medium</button>
+          <button type="button" data-val="Low"
+            class="task-prio-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Low</button>
         </div>
       </div>
       <div class="flex justify-end space-x-2 pt-2">
-        <button id="btn-cancel-task-modal" type="button" class="tap-target h-10 text-xs font-medium text-slate-600 hover:bg-slate-100 px-4 rounded-xl">Cancel</button>
-        <button id="btn-save-task-modal" type="button" class="tap-target h-10 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 px-5 rounded-xl">Save task</button>
+        <button id="btn-cancel-task-modal" type="button"
+          class="tap-target h-10 text-xs font-medium text-slate-600 hover:bg-slate-100 px-4 rounded-xl">Cancel</button>
+        <button id="btn-save-task-modal" type="button"
+          class="tap-target h-10 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 px-5 rounded-xl">Save
+          task</button>
       </div>
     </div>
   </div>
 
   <!-- Add / Edit Skill Modal (With Segmented Domain Allow-List Pills) -->
-  <div id="modal-skill" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
-    <div class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-sm w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
+  <div id="modal-skill"
+    class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
+    <div
+      class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-sm w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
       <div class="w-10 h-1 bg-slate-200 rounded-full mx-auto mb-1 sm:hidden"></div>
       <div class="flex items-center justify-between">
         <h3 id="modal-skill-heading" class="font-bold text-slate-900 text-sm sm:text-base">New skill target</h3>
-        <button id="btn-close-skill-modal" type="button" class="tap-target w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 flex items-center justify-center" aria-label="Close modal">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <button id="btn-close-skill-modal" type="button"
+          class="tap-target w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 flex items-center justify-center"
+          aria-label="Close modal">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
       <div>
         <label class="block text-xs font-medium text-slate-600 mb-1.5" for="modal-skill-name">Skill name</label>
-        <input type="text" id="modal-skill-name" placeholder="e.g. Data analysis &amp; reporting" class="w-full h-11 text-xs sm:text-sm px-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500">
+        <input type="text" id="modal-skill-name" placeholder="e.g. Data analysis &amp; reporting"
+          class="w-full h-11 text-xs sm:text-sm px-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500">
       </div>
       <div>
         <label class="block text-xs font-medium text-slate-600 mb-1.5" for="modal-skill-target">Target hours</label>
-        <input type="number" id="modal-skill-target" value="40" min="1" max="5000" class="w-full h-11 text-xs sm:text-sm px-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500">
+        <input type="number" id="modal-skill-target" value="40" min="1" max="5000"
+          class="w-full h-11 text-xs sm:text-sm px-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500">
       </div>
       <div>
-        <label id="label-skill-cat" for="modal-skill-category" class="block text-xs font-medium text-slate-600 mb-1.5">Domain</label>
+        <label id="label-skill-cat" for="modal-skill-category"
+          class="block text-xs font-medium text-slate-600 mb-1.5">Domain</label>
         <input type="hidden" id="modal-skill-category" value="Science">
         <div class="grid grid-cols-2 gap-2" id="skill-cat-pills" role="group" aria-labelledby="label-skill-cat">
-          <button type="button" data-val="Science" class="skill-cat-btn tap-target h-10 rounded-xl border border-slate-900 bg-slate-900 text-white text-xs font-semibold px-3 flex items-center justify-center">Science</button>
-          <button type="button" data-val="Leadership" class="skill-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Leadership</button>
-          <button type="button" data-val="Technical" class="skill-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Technical</button>
-          <button type="button" data-val="General" class="skill-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">General</button>
+          <button type="button" data-val="Science"
+            class="skill-cat-btn tap-target h-10 rounded-xl border border-slate-900 bg-slate-900 text-white text-xs font-semibold px-3 flex items-center justify-center">Science</button>
+          <button type="button" data-val="Leadership"
+            class="skill-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Leadership</button>
+          <button type="button" data-val="Technical"
+            class="skill-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Technical</button>
+          <button type="button" data-val="General"
+            class="skill-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">General</button>
         </div>
       </div>
       <div class="flex justify-end space-x-2 pt-2">
-        <button id="btn-cancel-skill-modal" type="button" class="tap-target h-10 text-xs font-medium text-slate-600 hover:bg-slate-100 px-4 rounded-xl">Cancel</button>
-        <button id="btn-save-skill-modal" type="button" class="tap-target h-10 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 px-5 rounded-xl">Save skill</button>
+        <button id="btn-cancel-skill-modal" type="button"
+          class="tap-target h-10 text-xs font-medium text-slate-600 hover:bg-slate-100 px-4 rounded-xl">Cancel</button>
+        <button id="btn-save-skill-modal" type="button"
+          class="tap-target h-10 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 px-5 rounded-xl">Save
+          skill</button>
       </div>
     </div>
   </div>
 
   <!-- Add Sub-Milestone Modal -->
-  <div id="modal-milestone" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
-    <div class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-sm w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
+  <div id="modal-milestone"
+    class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
+    <div
+      class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-sm w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
       <div class="w-10 h-1 bg-slate-200 rounded-full mx-auto mb-1 sm:hidden"></div>
       <div class="flex items-center justify-between">
         <h3 id="modal-milestone-heading" class="font-bold text-slate-900 text-sm sm:text-base">Add milestone</h3>
-        <button id="btn-close-milestone-modal" type="button" class="tap-target w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 flex items-center justify-center" aria-label="Close modal">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <button id="btn-close-milestone-modal" type="button"
+          class="tap-target w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 flex items-center justify-center"
+          aria-label="Close modal">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
       <div>
-        <label class="block text-xs font-medium text-slate-600 mb-1.5" for="input-milestone-title">Milestone description</label>
-        <input type="text" id="input-milestone-title" placeholder="e.g. Core module completion" class="w-full h-11 text-xs sm:text-sm px-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500">
+        <label class="block text-xs font-medium text-slate-600 mb-1.5" for="input-milestone-title">Milestone
+          description</label>
+        <input type="text" id="input-milestone-title" placeholder="e.g. Core module completion"
+          class="w-full h-11 text-xs sm:text-sm px-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500">
       </div>
       <div class="flex justify-end space-x-2 pt-2">
-        <button id="btn-cancel-milestone-modal" type="button" class="tap-target h-10 text-xs font-medium text-slate-600 hover:bg-slate-100 px-4 rounded-xl">Cancel</button>
-        <button id="btn-save-milestone-modal" type="button" class="tap-target h-10 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 px-5 rounded-xl">Add</button>
+        <button id="btn-cancel-milestone-modal" type="button"
+          class="tap-target h-10 text-xs font-medium text-slate-600 hover:bg-slate-100 px-4 rounded-xl">Cancel</button>
+        <button id="btn-save-milestone-modal" type="button"
+          class="tap-target h-10 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 px-5 rounded-xl">Add</button>
       </div>
     </div>
   </div>
 
   <!-- Add / Edit Note Modal -->
-  <div id="modal-note" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
-    <div class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
+  <div id="modal-note"
+    class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
+    <div
+      class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
       <div class="w-10 h-1 bg-slate-200 rounded-full mx-auto mb-1 sm:hidden"></div>
       <div class="flex items-center justify-between">
         <h3 id="modal-note-heading" class="font-bold text-slate-900 text-sm sm:text-base">New note</h3>
-        <button id="btn-close-note-modal" type="button" class="tap-target w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 flex items-center justify-center" aria-label="Close modal">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <button id="btn-close-note-modal" type="button"
+          class="tap-target w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 flex items-center justify-center"
+          aria-label="Close modal">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
       <div>
         <label class="block text-xs font-medium text-slate-600 mb-1.5" for="modal-note-title">Title</label>
-        <input type="text" id="modal-note-title" placeholder="e.g. Session summary notes" class="w-full h-11 text-xs sm:text-sm px-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500">
+        <input type="text" id="modal-note-title" placeholder="e.g. Session summary notes"
+          class="w-full h-11 text-xs sm:text-sm px-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500">
       </div>
       <div>
-        <label id="label-note-cat" for="modal-note-cat" class="block text-xs font-medium text-slate-600 mb-1.5">Category</label>
+        <label id="label-note-cat" for="modal-note-cat"
+          class="block text-xs font-medium text-slate-600 mb-1.5">Category</label>
         <input type="hidden" id="modal-note-cat" value="Lab & study">
         <div class="grid grid-cols-3 gap-2" id="note-cat-pills" role="group" aria-labelledby="label-note-cat">
-          <button type="button" data-val="Lab & study" class="note-cat-btn tap-target h-10 rounded-xl border border-slate-900 bg-slate-900 text-white text-xs font-semibold px-3 flex items-center justify-center">Lab &amp; study</button>
-          <button type="button" data-val="Leadership" class="note-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Leadership</button>
-          <button type="button" data-val="Personal" class="note-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Personal</button>
+          <button type="button" data-val="Lab & study"
+            class="note-cat-btn tap-target h-10 rounded-xl border border-slate-900 bg-slate-900 text-white text-xs font-semibold px-3 flex items-center justify-center">Lab
+            &amp; study</button>
+          <button type="button" data-val="Leadership"
+            class="note-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Leadership</button>
+          <button type="button" data-val="Personal"
+            class="note-cat-btn tap-target h-10 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-medium px-3 flex items-center justify-center">Personal</button>
         </div>
       </div>
       <div>
         <label class="block text-xs font-medium text-slate-600 mb-1.5" for="modal-note-body">Content</label>
-        <textarea id="modal-note-body" rows="4" placeholder="Write your observation, key takeaways, or summary..." class="w-full text-xs sm:text-sm p-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500 resize-y"></textarea>
+        <textarea id="modal-note-body" rows="4" placeholder="Write your observation, key takeaways, or summary..."
+          class="w-full text-xs sm:text-sm p-3.5 border border-slate-300 rounded-xl focus:outline-none focus:border-slate-500 resize-y"></textarea>
       </div>
       <div class="flex justify-end space-x-2 pt-2">
-        <button id="btn-cancel-note-modal" type="button" class="tap-target h-10 text-xs font-medium text-slate-600 hover:bg-slate-100 px-4 rounded-xl">Cancel</button>
-        <button id="btn-save-note-modal" type="button" class="tap-target h-10 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 px-5 rounded-xl">Save note</button>
+        <button id="btn-cancel-note-modal" type="button"
+          class="tap-target h-10 text-xs font-medium text-slate-600 hover:bg-slate-100 px-4 rounded-xl">Cancel</button>
+        <button id="btn-save-note-modal" type="button"
+          class="tap-target h-10 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 px-5 rounded-xl">Save
+          note</button>
       </div>
     </div>
   </div>
 
   <!-- Accessible In-Page Confirmation Dialog -->
-  <div id="modal-confirm" role="alertdialog" aria-modal="true" aria-labelledby="modal-confirm-heading" aria-describedby="modal-confirm-desc" aria-hidden="true" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
-    <div class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-sm w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
+  <div id="modal-confirm" role="alertdialog" aria-modal="true" aria-labelledby="modal-confirm-heading"
+    aria-describedby="modal-confirm-desc" aria-hidden="true"
+    class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
+    <div
+      class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-sm w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
       <div class="w-10 h-1 bg-slate-200 rounded-full mx-auto mb-1 sm:hidden"></div>
       <h3 id="modal-confirm-heading" class="font-bold text-slate-900 text-sm sm:text-base">Confirm action</h3>
-      <p id="modal-confirm-desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">Are you sure you want to proceed?</p>
+      <p id="modal-confirm-desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">Are you sure you want to
+        proceed?</p>
       <div class="flex justify-end space-x-2 pt-2">
-        <button id="btn-cancel-confirm-modal" type="button" class="tap-target h-10 text-xs font-medium text-slate-600 hover:bg-slate-100 px-4 rounded-xl">Cancel</button>
-        <button id="btn-accept-confirm-modal" type="button" class="tap-target h-10 text-xs font-semibold bg-rose-600 text-white hover:bg-rose-700 px-5 rounded-xl">Confirm</button>
+        <button id="btn-cancel-confirm-modal" type="button"
+          class="tap-target h-10 text-xs font-medium text-slate-600 hover:bg-slate-100 px-4 rounded-xl">Cancel</button>
+        <button id="btn-accept-confirm-modal" type="button"
+          class="tap-target h-10 text-xs font-semibold bg-rose-600 text-white hover:bg-rose-700 px-5 rounded-xl">Confirm</button>
       </div>
     </div>
   </div>
 
   <!-- Accessible Manual PWA Installation Instructions Modal -->
-  <div id="modal-pwa-install" role="dialog" aria-modal="true" aria-labelledby="modal-pwa-install-heading" aria-hidden="true" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
-    <div class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
+  <div id="modal-pwa-install" role="dialog" aria-modal="true" aria-labelledby="modal-pwa-install-heading"
+    aria-hidden="true"
+    class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 z-50 hidden">
+    <div
+      class="modal-sheet bg-white rounded-t-3xl sm:rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-xl border-t sm:border border-slate-200 space-y-4">
       <div class="w-10 h-1 bg-slate-200 rounded-full mx-auto mb-1 sm:hidden"></div>
       <div class="flex items-center justify-between">
-        <h3 id="modal-pwa-install-heading" class="font-bold text-slate-900 text-sm sm:text-base">Install Pulse Workspace</h3>
-        <button id="btn-close-pwa-install-modal" type="button" class="tap-target w-8 h-8 rounded-lg text-slate-500 hover:text-slate-800 flex items-center justify-center" aria-label="Close installation guide">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <h3 id="modal-pwa-install-heading" class="font-bold text-slate-900 text-sm sm:text-base">Install Pulse Workspace
+        </h3>
+        <button id="btn-close-pwa-install-modal" type="button"
+          class="tap-target w-8 h-8 rounded-lg text-slate-500 hover:text-slate-800 flex items-center justify-center"
+          aria-label="Close installation guide">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
 
@@ -899,26 +1263,32 @@
       <div class="space-y-2.5 text-xs">
         <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
           <div class="font-semibold text-slate-900">iOS &amp; iPadOS (Safari)</div>
-          <p class="text-slate-600 leading-relaxed">Tap the browser <strong>Share</strong> icon in the toolbar, then select <strong>Add to Home Screen</strong>.</p>
+          <p class="text-slate-600 leading-relaxed">Tap the browser <strong>Share</strong> icon in the toolbar, then
+            select <strong>Add to Home Screen</strong>.</p>
         </div>
 
         <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
           <div class="font-semibold text-slate-900">Android (Chrome / Edge)</div>
-          <p class="text-slate-600 leading-relaxed">Open the <strong>Browser Menu</strong> (&vellip;) in the top corner and tap <strong>Install app</strong> or <strong>Add to Home screen</strong>.</p>
+          <p class="text-slate-600 leading-relaxed">Open the <strong>Browser Menu</strong> (&vellip;) in the top corner
+            and tap <strong>Install app</strong> or <strong>Add to Home screen</strong>.</p>
         </div>
 
         <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
           <div class="font-semibold text-slate-900">Desktop (Chrome, Edge, or Safari)</div>
-          <p class="text-slate-600 leading-relaxed">Click the <strong>Install</strong> icon in the address bar, or choose <strong>File &rarr; Add to Dock</strong> in Safari.</p>
+          <p class="text-slate-600 leading-relaxed">Click the <strong>Install</strong> icon in the address bar, or
+            choose <strong>File &rarr; Add to Dock</strong> in Safari.</p>
         </div>
       </div>
 
       <div class="flex justify-end pt-1">
-        <button id="btn-got-it-pwa-install" type="button" class="tap-target h-10 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 px-5 rounded-xl transition-colors">Got it</button>
+        <button id="btn-got-it-pwa-install" type="button"
+          class="tap-target h-10 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 px-5 rounded-xl transition-colors">Got
+          it</button>
       </div>
     </div>
   </div>
 
   <script src="./app.js" defer></script>
 </body>
+
 </html>
