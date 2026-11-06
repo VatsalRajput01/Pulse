@@ -1322,3 +1322,55 @@ body.focus-view-active > main {
 }
 
 #modal-pwa-install { z-index: 65; }
+
+/* ==========================================================================
+   Tasks Filter & Sort Toolbar — Mobile Responsive Layout Fix
+   Prevents squeezing of filter buttons ("All", "Active", "Completed") and
+   the "Sort" dropdown on smaller screens using flex-wrap and responsive sizing.
+   ========================================================================== */
+@media (max-width: 639px) {
+  #view-tasks .flex.flex-wrap,
+  #view-tasks div:has(> #btn-sort-priority) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  #view-tasks .flex.flex-wrap::-webkit-scrollbar,
+  #view-tasks div:has(> #btn-sort-priority)::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Segmented Filter Control Container */
+  #view-tasks .flex.flex-wrap > div:first-child,
+  #view-tasks div:has(> #filter-all) {
+    flex: 1 1 230px;
+    min-width: min(100%, 230px);
+  }
+
+  /* Prevent text wrapping or squishing within individual filter buttons */
+  #filter-all,
+  #filter-active,
+  #filter-completed {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+    font-size: 0.75rem;
+    min-width: 0;
+  }
+
+  /* Sort dropdown button wraps gracefully and stays cleanly aligned */
+  #btn-sort-priority {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    margin-left: auto;
+  }
+}
+
