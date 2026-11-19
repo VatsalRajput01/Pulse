@@ -1,5 +1,6 @@
 # Pulse | Daily Workspace ⚡
 
+https://mypulse.pages.dev
 Pulse is a premium, local-first minimalist personal operating system and Progressive Web App engineered for high-agency individuals who value focus, privacy, and speed. Built with zero external dependencies, it pairs daily habit and task tracking with a strict zero-scroll, `100dvh` **Focus Studio** for distraction-free deep work sessions.
 
 ## ✨ Key Features
